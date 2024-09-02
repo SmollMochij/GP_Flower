@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="game\animatedsprite.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\entity.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\game.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\logmanager.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\matrix4.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\renderer.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\scene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\sceneaut.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\sceneballs.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\scenecheckerboards.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\shader.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\sprite.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\texture.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\texturemanager.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\vector2.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="game\vertexarray.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game\animatedsprite.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\entity.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\vertexarray.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\game.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\inlinehelper.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\logmanager.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\matrix4.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\renderer.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\scene.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\sceneaut.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\sceneballs.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\scenecheckerboards.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\shader.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\sprite.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\texture.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\texturemanager.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\vector2.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\anim8strip.png">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\anim8stripx2sheet.png">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\aut.png">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\ball.png">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\board8x1.png">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\board8x2.png">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\board8x8.png">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\explosion.png">
+      <Filter>images</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sprite.frag">
+      <Filter>source</Filter>
+    </None>
+    <None Include="sprite.vert">
+      <Filter>source</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{be94bca8-8ddf-4de8-b1bc-36e7549b279f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="images">
+      <UniqueIdentifier>{7c1d5531-185b-44a9-8fab-e2579e9cb02d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
