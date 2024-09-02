@@ -49,7 +49,7 @@ bool Game::Initialise()
 		LogManager::GetInstance().Log("Renderer failed to initialise!");
 		return false;
 	}
-	renderer.SetClearColour(0, 128, 255);
+	m_pRenderer->SetClearColour(0, 128, 255);
 
 
 	bbWidth = m_pRenderer->GetWidth();
