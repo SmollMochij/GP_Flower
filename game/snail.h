@@ -3,7 +3,7 @@
 
 #include "sprite.h"
 
-#define SNAILEATING 20
+#define SNAILEATING 2
 
 class Snail {
 public:

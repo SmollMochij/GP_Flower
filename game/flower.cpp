@@ -2,9 +2,9 @@
 #include "inlinehelper.h"
 #include "sprite.h"
 
-Flower::Flower(){
-	x = 600;
-	y = 600;
+Flower::Flower(int _x, int _y){
+	x = _x;
+	y = _y;
 	health = 100;
 
 	sprite = NULL;

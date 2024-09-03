@@ -10,7 +10,7 @@ public:
     int health;
     Sprite* sprite;
 public:
-    Flower();
+    Flower(int x, int y);
     void SetSprite(Sprite* sprite);
     void Update();
 };

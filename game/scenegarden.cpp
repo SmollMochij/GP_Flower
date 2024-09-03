@@ -31,18 +31,30 @@ bool SceneGarden::Initialise(Renderer &renderer)
 		snails[i] = NULL;
 	}
 
-	Flower* newflower = new Flower;
-	Sprite* flower_sprite = m_pRenderer->CreateSprite("images/temp_flower.png");
-	newflower->SetSprite(flower_sprite);
-	flowers[0] = newflower;
+	int positions[][4] = {
+		{400, 400},
+		{800, 400},
+		{400, 800},
+		{800, 800},
+	};
+	for (int i = 0; i < 4; i++) {
+		int x = positions[i][0];
+		int y = positions[i][1];
+		Flower* newflower = new Flower(x, y);
+		Sprite* flower_sprite = m_pRenderer->CreateSprite("images/temp_flower.png");
+		newflower->SetSprite(flower_sprite);
+		flowers[i] = newflower;
+	}
 
 	return true;
 }
 
 void SceneGarden::Process(float deltaTime)
 {
-	flowers[0]->Update();
-	flowers[0]->sprite->Process(deltaTime);
+	for (int i = 0; i < 4; i++) {
+		flowers[i]->Update();
+		flowers[i]->sprite->Process(deltaTime);
+	}
 
 	// randomly spawn new snails
 	if (GetRandomPercentage() < 0.005f) {
@@ -70,7 +82,7 @@ void SceneGarden::Process(float deltaTime)
 
 	for (int i = 0; i < 10; i++)
 	{
-		if (m_pSprites[i] == 0)
+		if (m_pSprites[i] == NULL)
 			break;
 		m_pSprites[i]->Process(deltaTime);
 	}
@@ -83,10 +95,12 @@ void SceneGarden::Draw(Renderer &renderer)
 	}
 
 	for (int i = 0; i < 10; i++){
-		if (m_pSprites[i] == 0)
+		if (m_pSprites[i] == NULL)
 			break;
 		m_pSprites[i]->Draw(renderer);
 	}
 
-	flowers[0]->sprite->Draw(renderer);
+	for (int i = 0; i < 4; i++) {
+		flowers[i]->sprite->Draw(renderer);
+	}
 }
