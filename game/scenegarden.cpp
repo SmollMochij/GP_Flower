@@ -10,6 +10,8 @@
 #include "flower.h"
 #include <cmath>
 
+const int number_of_flowers = 4;
+
 SceneGarden::SceneGarden()
 {
 }
@@ -31,13 +33,13 @@ bool SceneGarden::Initialise(Renderer &renderer)
 		snails[i] = NULL;
 	}
 
-	int positions[][4] = {
+	int positions[][number_of_flowers] = {
 		{400, 400},
 		{800, 400},
 		{400, 800},
 		{800, 800},
 	};
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < number_of_flowers; i++) {
 		int x = positions[i][0];
 		int y = positions[i][1];
 		Flower* newflower = new Flower(x, y);
@@ -51,7 +53,7 @@ bool SceneGarden::Initialise(Renderer &renderer)
 
 void SceneGarden::Process(float deltaTime)
 {
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < number_of_flowers; i++) {
 		flowers[i]->Update();
 		flowers[i]->sprite->Process(deltaTime);
 	}
@@ -67,15 +69,16 @@ void SceneGarden::Process(float deltaTime)
 		}
 	}
 
-
 	// snail eating flowers
 	for (int i = 0; i < snail_count; i++) {
-		int deltaX = snails[i]->x - flowers[0]->x;
-		int deltaY = snails[i]->y - flowers[0]->y;
-		int distance = std::sqrt(deltaX * deltaX + deltaY * deltaY);
+		for (int j = 0; j < number_of_flowers; j++) {
+			int deltaX = snails[i]->x - flowers[j]->x;
+			int deltaY = snails[i]->y - flowers[j]->y;
+			int distance = std::sqrt(deltaX * deltaX + deltaY * deltaY);
 
-		if (distance <= 300) {
-			flowers[0]->health -= SNAILEATING;
+			if (distance <= 300) {
+				flowers[j]->health -= SNAILEATING;
+			}
 		}
 	}
 
@@ -100,7 +103,7 @@ void SceneGarden::Draw(Renderer &renderer)
 		m_pSprites[i]->Draw(renderer);
 	}
 
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < number_of_flowers; i++) {
 		flowers[i]->sprite->Draw(renderer);
 	}
 }
