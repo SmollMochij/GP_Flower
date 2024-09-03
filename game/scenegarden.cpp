@@ -69,7 +69,7 @@ void SceneGarden::Process(float deltaTime)
 	}
 
 	// randomly spawn new snails
-	if (GetRandomPercentage() < 0.00002f) {
+	if (GetRandomPercentage() < 0.0002f) {
 		if (snail_count < 4) {
 			Snail * newsnail = new Snail;
 			Sprite* snail_sprite = m_pRenderer->CreateSprite("images/snail.png");

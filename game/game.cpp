@@ -1,6 +1,8 @@
 // COMP710 GP Framework 2022
 // This include:
 #include "game.h"
+
+#include <random>
 // Library includes:
 #include "renderer.h"
 #include "logmanager.h"
@@ -40,6 +42,8 @@ void Game::Quit()
 
 bool Game::Initialise()
 {
+	srand((int)time(0));
+
 	int bbWidth = 1024;
 	int bbHeight = 720;
 	m_pRenderer = new Renderer();
