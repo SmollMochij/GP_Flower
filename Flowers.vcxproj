@@ -28,8 +28,7 @@
     <ClCompile Include="game\renderer.cpp" />
     <ClCompile Include="game\scene.cpp" />
     <ClCompile Include="game\sceneaut.cpp" />
-    <ClCompile Include="game\sceneballs.cpp" />
-    <ClCompile Include="game\scenecheckerboards.cpp" />
+    <ClCompile Include="game\scenegarden.cpp" />
     <ClCompile Include="game\shader.cpp" />
     <ClCompile Include="game\sprite.cpp" />
     <ClCompile Include="game\texture.cpp" />
@@ -47,8 +46,7 @@
     <ClInclude Include="game\renderer.h" />
     <ClInclude Include="game\scene.h" />
     <ClInclude Include="game\sceneaut.h" />
-    <ClInclude Include="game\sceneballs.h" />
-    <ClInclude Include="game\scenecheckerboards.h" />
+    <ClInclude Include="game\scenegarden.h" />
     <ClInclude Include="game\shader.h" />
     <ClInclude Include="game\sprite.h" />
     <ClInclude Include="game\texture.h" />

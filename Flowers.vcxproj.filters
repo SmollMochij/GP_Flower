@@ -28,10 +28,7 @@
     <ClCompile Include="game\sceneaut.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="game\sceneballs.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="game\scenecheckerboards.cpp">
+    <ClCompile Include="game\scenegarden.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="game\shader.cpp">
@@ -84,10 +81,7 @@
     <ClInclude Include="game\sceneaut.h">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="game\sceneballs.h">
-      <Filter>source</Filter>
-    </ClInclude>
-    <ClInclude Include="game\scenecheckerboards.h">
+    <ClInclude Include="game\scenegarden.h">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="game\shader.h">

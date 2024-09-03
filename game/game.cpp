@@ -5,8 +5,7 @@
 #include "renderer.h"
 #include "logmanager.h"
 #include "sprite.h"
-#include "scenecheckerboards.h"
-#include "sceneballs.h"
+#include "scenegarden.h"
 #include "sceneaut.h"
 
 // Static Members:
@@ -14,7 +13,7 @@ Game *Game::sm_pInstance = 0;
 Game &Game::GetInstance()
 {
 	if (sm_pInstance == 0)
-	{
+	{;
 		sm_pInstance = new Game();
 	}
 	return (*sm_pInstance);
@@ -51,7 +50,6 @@ bool Game::Initialise()
 	}
 	m_pRenderer->SetClearColour(0, 128, 255);
 
-
 	bbWidth = m_pRenderer->GetWidth();
 	bbHeight = m_pRenderer->GetHeight();
 	m_iLastTime = SDL_GetPerformanceCounter();
@@ -60,12 +58,9 @@ bool Game::Initialise()
 	m_iCurrentScene = 0;
 	m_pScenes = new Scene *[10];
 	Scene **pScenes = m_pScenes;
-
-	pScenes[0] = new SceneCheckerboards();
+	 
+	pScenes[0] = new SceneGarden();
 	pScenes[0]->Initialise(*m_pRenderer);
-
-	pScenes[1] = new SceneBalls();
-	pScenes[1]->Initialise(*m_pRenderer);
 
 	for (int i = 0; i <= 10; i++)
 	{
