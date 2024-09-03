@@ -2,6 +2,7 @@
 // This include:
 #include "scenegarden.h"
 
+#include <SDL.h>
 // Local includes:
 #include "renderer.h"
 #include "sprite.h"
@@ -60,6 +61,7 @@ bool SceneGarden::Initialise(Renderer &renderer)
 void SceneGarden::Process(float deltaTime)
 {
 	player->sprite->Process(deltaTime);
+	player->Update();
 
 	for (int i = 0; i < number_of_flowers; i++) {
 		flowers[i]->Update();
@@ -116,4 +118,11 @@ void SceneGarden::Draw(Renderer &renderer)
 	}
 
 	player->sprite->Draw(renderer);
+}
+
+void SceneGarden::ProcessInput(const Uint8* state) {
+	if (state[SDL_SCANCODE_W]) player->y -= 1; // Move up
+	if (state[SDL_SCANCODE_A]) player->x -= 1; // Move left
+	if (state[SDL_SCANCODE_S]) player->y += 1; // Move down
+	if (state[SDL_SCANCODE_D]) player->x += 1; // Move right
 }

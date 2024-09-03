@@ -14,3 +14,8 @@ void Player::SetSprite(Sprite* newsprite) {
 	sprite->SetX(x);
 	sprite->SetY(y);
 }
+
+void Player::Update() {
+	sprite->SetX(x);
+	sprite->SetY(y);
+}

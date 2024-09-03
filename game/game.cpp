@@ -64,7 +64,6 @@ bool Game::Initialise()
 
 	for (int i = 0; i <= 10; i++)
 	{
-
 		m_scenes.push_back(pScenes[i]);
 	}
 
@@ -80,6 +79,9 @@ bool Game::DoGameLoop()
 	{
 		continue;
 	}
+
+	const Uint8* state = SDL_GetKeyboardState(NULL);
+	m_pScenes[0]->ProcessInput(state);
 
 	if (m_bLooping)
 	{

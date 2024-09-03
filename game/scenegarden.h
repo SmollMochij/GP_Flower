@@ -7,6 +7,7 @@
 // Local includes:
 #include "scene.h"
 // Forward declarations:
+#include <SDL.h>
 class Renderer;
 class Sprite;
 class Snail;
@@ -22,6 +23,7 @@ public:
 	virtual bool Initialise(Renderer &renderer);
 	virtual void Process(float deltaTime);
 	virtual void Draw(Renderer &renderer);
+	virtual void ProcessInput(const Uint8* state);
 
 protected:
 private:

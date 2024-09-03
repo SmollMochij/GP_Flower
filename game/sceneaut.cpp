@@ -48,7 +48,7 @@ void SceneAUT::Draw(Renderer &renderer)
 	m_pSprites[n]->Draw(renderer);
 }
 
-bool SceneAUT::IsComplete()
+void SceneAUT::ProcessInput(const Uint8* state)
 {
-	return m_timeTilComplete > TIME_TIL_COMPLETE;
+	
 }
