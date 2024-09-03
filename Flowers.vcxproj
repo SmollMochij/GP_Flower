@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="game\animatedsprite.cpp" />
     <ClCompile Include="game\entity.cpp" />
+    <ClCompile Include="game\flower.cpp" />
     <ClCompile Include="game\game.cpp" />
     <ClCompile Include="game\logmanager.cpp" />
     <ClCompile Include="game\main.cpp" />
@@ -40,6 +41,7 @@
   <ItemGroup>
     <ClInclude Include="game\animatedsprite.h" />
     <ClInclude Include="game\entity.h" />
+    <ClInclude Include="game\flower.h" />
     <ClInclude Include="game\game.h" />
     <ClInclude Include="game\inlinehelper.h" />
     <ClInclude Include="game\logmanager.h" />

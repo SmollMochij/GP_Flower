@@ -7,6 +7,7 @@
 #include "sprite.h"
 #include "inlinehelper.h"
 #include "snail.h"
+#include "flower.h"
 
 SceneGarden::SceneGarden()
 {
@@ -21,6 +22,7 @@ bool SceneGarden::Initialise(Renderer &renderer)
 
 	m_pSprites = new Sprite *[10];
 	snails = new Snail * [10];
+	flowers = new Flower * [10];
 	snail_count = 0;
 	for (int i = 0; i < 10; i++)
 	{
@@ -28,16 +30,18 @@ bool SceneGarden::Initialise(Renderer &renderer)
 		snails[i] = NULL;
 	}
 
-	m_pSprites[0] = m_pRenderer->CreateSprite("images/temp_flower.png");
-	m_pSprites[0]->SetX(200);
-	m_pSprites[0]->SetY(200);
-	m_pSprites[0]->SetScale(-1);
+	Flower* newflower = new Flower;
+	Sprite* flower_sprite = m_pRenderer->CreateSprite("images/temp_flower.png");
+	newflower->SetSprite(flower_sprite);
+	flowers[0] = newflower;
 
 	return true;
 }
 
 void SceneGarden::Process(float deltaTime)
 {
+	flowers[0]->sprite->Process(deltaTime);
+
 	if (GetRandomPercentage() < 0.005f) {
 		if (snail_count < 10) {
 			Snail * newsnail = new Snail;
@@ -58,6 +62,8 @@ void SceneGarden::Process(float deltaTime)
 
 void SceneGarden::Draw(Renderer &renderer)
 {
+	flowers[0]->sprite->Draw(renderer);
+
 	for (int i = 0; i < snail_count; i++) {
 		snails[i]->sprite->Draw(renderer);
 	}
