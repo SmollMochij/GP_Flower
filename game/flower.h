@@ -12,6 +12,7 @@ public:
 public:
     Flower();
     void SetSprite(Sprite* sprite);
+    void Update();
 };
 
 #endif // FLOWER_H

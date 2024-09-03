@@ -8,6 +8,7 @@
 #include "inlinehelper.h"
 #include "snail.h"
 #include "flower.h"
+#include <cmath>
 
 SceneGarden::SceneGarden()
 {
@@ -40,8 +41,10 @@ bool SceneGarden::Initialise(Renderer &renderer)
 
 void SceneGarden::Process(float deltaTime)
 {
+	flowers[0]->Update();
 	flowers[0]->sprite->Process(deltaTime);
 
+	// randomly spawn new snails
 	if (GetRandomPercentage() < 0.005f) {
 		if (snail_count < 10) {
 			Snail * newsnail = new Snail;
@@ -51,6 +54,19 @@ void SceneGarden::Process(float deltaTime)
 			snail_count++;
 		}
 	}
+
+
+	// snail eating flowers
+	for (int i = 0; i < snail_count; i++) {
+		int deltaX = snails[i]->x - flowers[0]->x;
+		int deltaY = snails[i]->y - flowers[0]->y;
+		int distance = std::sqrt(deltaX * deltaX + deltaY * deltaY);
+
+		if (distance <= 300) {
+			flowers[0]->health -= SNAILEATING;
+		}
+	}
+
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -62,8 +78,6 @@ void SceneGarden::Process(float deltaTime)
 
 void SceneGarden::Draw(Renderer &renderer)
 {
-	flowers[0]->sprite->Draw(renderer);
-
 	for (int i = 0; i < snail_count; i++) {
 		snails[i]->sprite->Draw(renderer);
 	}
@@ -73,4 +87,6 @@ void SceneGarden::Draw(Renderer &renderer)
 			break;
 		m_pSprites[i]->Draw(renderer);
 	}
+
+	flowers[0]->sprite->Draw(renderer);
 }
