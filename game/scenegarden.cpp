@@ -40,10 +40,10 @@ void SceneGarden::Process(float deltaTime)
 {
 	if (GetRandomPercentage() < 0.005f) {
 		if (snail_count < 10) {
-			snails[snail_count] = new Snail;
-			snails[snail_count]->sprite = m_pRenderer->CreateSprite("images/snail.png");
-			snails[snail_count]->sprite->SetX(snails[snail_count]->x);
-			snails[snail_count]->sprite->SetY(snails[snail_count]->y);
+			Snail * newsnail = new Snail;
+			Sprite* snail_sprite = m_pRenderer->CreateSprite("images/snail.png");
+			newsnail->SetSprite(snail_sprite);
+			snails[snail_count] = newsnail;
 			snail_count++;
 		}
 	}

@@ -10,6 +10,7 @@ public:
     Sprite* sprite;
 public:
     Snail();
+    void SetSprite(Sprite* sprite);
 };
 
 #endif // SNAIL_H
