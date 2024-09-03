@@ -55,6 +55,9 @@
     <ClCompile Include="game\flower.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="game\player.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game\animatedsprite.h">
@@ -109,6 +112,9 @@
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="game\flower.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="game\player.h">
       <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>

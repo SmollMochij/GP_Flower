@@ -11,6 +11,7 @@ class Renderer;
 class Sprite;
 class Snail;
 class Flower;
+class Player;
 // Class declaration:
 class SceneGarden : public Scene
 {
@@ -35,6 +36,7 @@ protected:
 	Sprite **m_pSprites;
 	Snail** snails;
 	Flower** flowers;
+	Player* player;
 	int snail_count;
 };
 

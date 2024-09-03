@@ -8,6 +8,7 @@
 #include "inlinehelper.h"
 #include "snail.h"
 #include "flower.h"
+#include "player.h"
 #include <cmath>
 
 const int number_of_flowers = 4;
@@ -33,12 +34,17 @@ bool SceneGarden::Initialise(Renderer &renderer)
 		snails[i] = NULL;
 	}
 
+	Sprite* player_sprite = m_pRenderer->CreateSprite("images/ball.png");
+	player = new Player(100, 200);
+	player->SetSprite(player_sprite);
+
 	int positions[][number_of_flowers] = {
 		{400, 400},
 		{800, 400},
 		{400, 800},
 		{800, 800},
 	};
+
 	for (int i = 0; i < number_of_flowers; i++) {
 		int x = positions[i][0];
 		int y = positions[i][1];
@@ -53,6 +59,8 @@ bool SceneGarden::Initialise(Renderer &renderer)
 
 void SceneGarden::Process(float deltaTime)
 {
+	player->sprite->Process(deltaTime);
+
 	for (int i = 0; i < number_of_flowers; i++) {
 		flowers[i]->Update();
 		flowers[i]->sprite->Process(deltaTime);
@@ -106,4 +114,6 @@ void SceneGarden::Draw(Renderer &renderer)
 	for (int i = 0; i < number_of_flowers; i++) {
 		flowers[i]->sprite->Draw(renderer);
 	}
+
+	player->sprite->Draw(renderer);
 }

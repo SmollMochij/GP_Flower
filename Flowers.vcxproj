@@ -26,6 +26,7 @@
     <ClCompile Include="game\logmanager.cpp" />
     <ClCompile Include="game\main.cpp" />
     <ClCompile Include="game\matrix4.cpp" />
+    <ClCompile Include="game\player.cpp" />
     <ClCompile Include="game\renderer.cpp" />
     <ClCompile Include="game\scene.cpp" />
     <ClCompile Include="game\sceneaut.cpp" />
@@ -46,6 +47,7 @@
     <ClInclude Include="game\inlinehelper.h" />
     <ClInclude Include="game\logmanager.h" />
     <ClInclude Include="game\matrix4.h" />
+    <ClInclude Include="game\player.h" />
     <ClInclude Include="game\renderer.h" />
     <ClInclude Include="game\scene.h" />
     <ClInclude Include="game\sceneaut.h" />
