@@ -9,6 +9,7 @@
 // Forward declarations:
 class Renderer;
 class Sprite;
+class Snail;
 // Class declaration:
 class SceneGarden : public Scene
 {
@@ -29,7 +30,10 @@ private:
 public:
 private:
 protected:
+	Renderer* m_pRenderer;
 	Sprite **m_pSprites;
+	Snail** snails;
+	int snail_count;
 };
 
 #endif //   SCENEGARDEN_H

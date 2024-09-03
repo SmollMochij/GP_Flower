@@ -30,6 +30,7 @@
     <ClCompile Include="game\sceneaut.cpp" />
     <ClCompile Include="game\scenegarden.cpp" />
     <ClCompile Include="game\shader.cpp" />
+    <ClCompile Include="game\snail.cpp" />
     <ClCompile Include="game\sprite.cpp" />
     <ClCompile Include="game\texture.cpp" />
     <ClCompile Include="game\texturemanager.cpp" />
@@ -48,6 +49,7 @@
     <ClInclude Include="game\sceneaut.h" />
     <ClInclude Include="game\scenegarden.h" />
     <ClInclude Include="game\shader.h" />
+    <ClInclude Include="game\snail.h" />
     <ClInclude Include="game\sprite.h" />
     <ClInclude Include="game\texture.h" />
     <ClInclude Include="game\texturemanager.h" />
@@ -67,6 +69,10 @@
     <Image Include="images\board8x2.png" />
     <Image Include="images\board8x8.png" />
     <Image Include="images\explosion.png" />
+    <Image Include="images\purple_flower.png" />
+    <Image Include="images\snail.png" />
+    <Image Include="images\temp_flower.png" />
+    <Image Include="images\white_flower.jpg" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

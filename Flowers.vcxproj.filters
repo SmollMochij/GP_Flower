@@ -49,6 +49,9 @@
     <ClCompile Include="game\vertexarray.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="game\snail.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game\animatedsprite.h">
@@ -99,6 +102,9 @@
     <ClInclude Include="game\vector2.h">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="game\snail.h">
+      <Filter>source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\anim8strip.png">
@@ -123,6 +129,18 @@
       <Filter>images</Filter>
     </Image>
     <Image Include="images\explosion.png">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\white_flower.jpg">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\snail.png">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\purple_flower.png">
+      <Filter>images</Filter>
+    </Image>
+    <Image Include="images\temp_flower.png">
       <Filter>images</Filter>
     </Image>
   </ItemGroup>
