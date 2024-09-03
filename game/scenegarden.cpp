@@ -26,9 +26,10 @@ bool SceneGarden::Initialise(Renderer &renderer)
 	int n = -1;
 
 	n++;
-	m_pSprites[n] = m_pRenderer->CreateSprite("images/board8x8.png");
+	m_pSprites[n] = m_pRenderer->CreateSprite("images/temp_flower.png");
 	m_pSprites[n]->SetX(200);
 	m_pSprites[n]->SetY(200);
+	m_pSprites[n]->SetScale(-1);
 
 	return true;
 }
