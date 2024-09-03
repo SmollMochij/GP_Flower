@@ -5,7 +5,7 @@
 Flower::Flower(int _x, int _y){
 	x = _x;
 	y = _y;
-	health = 100;
+	health = 1000;
 
 	sprite = NULL;
 }
@@ -19,5 +19,5 @@ void Flower::SetSprite(Sprite* newsprite) {
 
 void Flower::Update() {
 	if (health < 0)health = 0;
-	sprite->SetScale(-health / 100.0f);
+	sprite->SetScale(-health / 1000.0f);
 }

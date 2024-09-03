@@ -69,8 +69,8 @@ void SceneGarden::Process(float deltaTime)
 	}
 
 	// randomly spawn new snails
-	if (GetRandomPercentage() < 0.005f) {
-		if (snail_count < 10) {
+	if (GetRandomPercentage() < 0.00002f) {
+		if (snail_count < 4) {
 			Snail * newsnail = new Snail;
 			Sprite* snail_sprite = m_pRenderer->CreateSprite("images/snail.png");
 			newsnail->SetSprite(snail_sprite);
@@ -82,6 +82,9 @@ void SceneGarden::Process(float deltaTime)
 	// snail eating flowers
 	for (int i = 0; i < snail_count; i++) {
 		for (int j = 0; j < number_of_flowers; j++) {
+			if (snails[i] == NULL) {
+				continue;
+			}
 			int deltaX = snails[i]->x - flowers[j]->x;
 			int deltaY = snails[i]->y - flowers[j]->y;
 			int distance = std::sqrt(deltaX * deltaX + deltaY * deltaY);
@@ -104,6 +107,9 @@ void SceneGarden::Process(float deltaTime)
 void SceneGarden::Draw(Renderer &renderer)
 {
 	for (int i = 0; i < snail_count; i++) {
+		if (snails[i] == NULL) {
+			continue;
+		}
 		snails[i]->sprite->Draw(renderer);
 	}
 
@@ -125,4 +131,20 @@ void SceneGarden::ProcessInput(const Uint8* state) {
 	if (state[SDL_SCANCODE_A]) player->x -= 1; // Move left
 	if (state[SDL_SCANCODE_S]) player->y += 1; // Move down
 	if (state[SDL_SCANCODE_D]) player->x += 1; // Move right
+	// Kill snail
+	if (state[SDL_SCANCODE_K]) {
+		for (int i = 0; i < snail_count; i++) {
+			if (snails[i] == NULL) {
+				continue;
+			}
+			int deltaX = snails[i]->x - player->x;
+			int deltaY = snails[i]->y - player->y;
+			int distance = std::sqrt(deltaX * deltaX + deltaY * deltaY);
+
+			if (distance <= 300) {
+				snails[i] = NULL;
+			}
+			
+		}
+	}
 }
