@@ -147,10 +147,10 @@ void SceneGarden::Draw(Renderer &renderer)
 }
 
 void SceneGarden::ProcessInput(const Uint8* state) {
-	if (state[SDL_SCANCODE_W]) player->y -= 1; // Move up
-	if (state[SDL_SCANCODE_A]) player->x -= 1; // Move left
-	if (state[SDL_SCANCODE_S]) player->y += 1; // Move down
-	if (state[SDL_SCANCODE_D]) player->x += 1; // Move right
+	if (state[SDL_SCANCODE_W]) player->y -= 3; // Move up
+	if (state[SDL_SCANCODE_A]) player->x -= 3; // Move left
+	if (state[SDL_SCANCODE_S]) player->y += 3; // Move down
+	if (state[SDL_SCANCODE_D]) player->x += 3; // Move right
 	// Kill snail
 	if (state[SDL_SCANCODE_K]) {
 		for (int i = 0; i < snail_count; i++) {
