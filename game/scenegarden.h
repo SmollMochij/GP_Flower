@@ -38,6 +38,7 @@ protected:
 	Renderer* m_pRenderer;
 	Sprite **m_pSprites;
 	AnimatedSprite** m_pAnimatedSprites;
+	Sprite* m_pBG;
 	Sprite* m_pGameOver;
 	Snail** snails;
 	Flower** flowers;

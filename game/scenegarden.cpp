@@ -43,6 +43,12 @@ bool SceneGarden::Initialise(Renderer &renderer)
 	Sprite* player_sprite = m_pRenderer->CreateSprite("images/ball.png");
 	player = new Player(100, 200);
 
+	Sprite* background = m_pRenderer->CreateSprite("images/background.jpg");
+	background->SetX(300);
+	background->SetY(500);
+	background->SetScale(6);
+	m_pBG = background;
+
 	AnimatedSprite* spriteanimated = m_pRenderer->CreateAnimatedSprite("images/sprite.png");
 	spriteanimated->SetupFrames(32, 32); // 32x32 spritesheet
 	spriteanimated->Animate();
@@ -81,6 +87,8 @@ bool SceneGarden::Initialise(Renderer &renderer)
 
 void SceneGarden::Process(float deltaTime)
 {
+	m_pBG->Process(deltaTime);
+
 	player->sprite->Process(deltaTime);
 	player->Update();
 
@@ -143,6 +151,8 @@ void SceneGarden::Process(float deltaTime)
 
 void SceneGarden::Draw(Renderer &renderer)
 {
+	m_pBG->Draw(renderer);
+
 	for (int i = 0; i < snail_count; i++) {
 		if (snails[i] == NULL) {
 			continue;
