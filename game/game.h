@@ -39,6 +39,7 @@ protected:
 	__int64 m_iLastTime;
 	float m_fExecutionTime;
 	float m_fElapsedSeconds;
+	float m_fElapsedSecondsTotal;
 	int m_iFrameCount;
 	int m_iFPS;
 #ifdef USE_LAG

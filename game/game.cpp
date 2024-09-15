@@ -28,6 +28,7 @@ void Game::DestroyInstance()
 
 Game::Game()
 	: m_pRenderer(0), m_bLooping(true)
+	, m_fElapsedSecondsTotal(0)
 {
 }
 Game::~Game()
@@ -52,7 +53,7 @@ bool Game::Initialise()
 		LogManager::GetInstance().Log("Renderer failed to initialise!");
 		return false;
 	}
-	m_pRenderer->SetClearColour(0, 128, 255);
+	m_pRenderer->SetClearColour(0, 0, 0);
 
 	bbWidth = m_pRenderer->GetWidth();
 	bbHeight = m_pRenderer->GetHeight();
@@ -62,9 +63,12 @@ bool Game::Initialise()
 	m_iCurrentScene = 0;
 	m_pScenes = new Scene *[10];
 	Scene **pScenes = m_pScenes;
-	 
-	pScenes[0] = new SceneGarden();
+
+	pScenes[0] = new SceneAUT();
 	pScenes[0]->Initialise(*m_pRenderer);
+
+	pScenes[1] = new SceneGarden();
+	pScenes[1]->Initialise(*m_pRenderer);
 
 	for (int i = 0; i <= 10; i++)
 	{
@@ -85,7 +89,7 @@ bool Game::DoGameLoop()
 	}
 
 	const Uint8* state = SDL_GetKeyboardState(NULL);
-	m_pScenes[0]->ProcessInput(state);
+	m_pScenes[m_iCurrentScene]->ProcessInput(state);
 
 	if (m_bLooping)
 	{
@@ -125,6 +129,11 @@ void Game::Process(float deltaTime)
 {
 	ProcessFrameCounting(deltaTime);
 
+	if (m_fElapsedSecondsTotal >= 2.0) {
+		m_iCurrentScene = 1;
+		m_pRenderer->SetClearColour(0, 128, 255);
+	}
+
 	m_scenes[m_iCurrentScene]->Process(deltaTime);
 }
 void Game::Draw(Renderer &renderer)
@@ -141,6 +150,7 @@ void Game::ProcessFrameCounting(float deltaTime)
 {
 	// Count total simulation time elapsed:
 	m_fElapsedSeconds += deltaTime;
+	m_fElapsedSecondsTotal += deltaTime;
 
 	// Frame Counter:
 	if (m_fElapsedSeconds > 1.0f)
