@@ -87,6 +87,11 @@ bool SceneGarden::Initialise(Renderer &renderer)
 
 void SceneGarden::Process(float deltaTime)
 {
+#if _DEBUG
+#else
+	if (bGameOver) return;
+#endif
+
 	m_pBG->Process(deltaTime);
 
 	player->sprite->Process(deltaTime);
@@ -103,7 +108,10 @@ void SceneGarden::Process(float deltaTime)
 			Snail * newsnail = new Snail;
 			Sprite* snail_sprite = m_pRenderer->CreateSprite("images/snail.png");
 			newsnail->SetSprite(snail_sprite);
+			newsnail->sprite->SetScale(0.25);
+#if _DEBUG
 			newsnail->sprite->SetScale(0.5);
+#endif
 			snails[snail_count] = newsnail;
 			snail_count++;
 		}
@@ -181,10 +189,14 @@ void SceneGarden::Draw(Renderer &renderer)
 }
 
 void SceneGarden::ProcessInput(const Uint8* state) {
-	if (state[SDL_SCANCODE_W]) player->y -= 3; // Move up
-	if (state[SDL_SCANCODE_A]) player->x -= 3; // Move left
-	if (state[SDL_SCANCODE_S]) player->y += 3; // Move down
-	if (state[SDL_SCANCODE_D]) player->x += 3; // Move right
+	int move = 3;
+#if _DEBUG
+	move = 10;
+#endif
+	if (state[SDL_SCANCODE_W]) player->y -= move; // Move up
+	if (state[SDL_SCANCODE_A]) player->x -= move; // Move left
+	if (state[SDL_SCANCODE_S]) player->y += move; // Move down
+	if (state[SDL_SCANCODE_D]) player->x += move; // Move right
 	// Kill snail
 	if (state[SDL_SCANCODE_K]) {
 		for (int i = 0; i < snail_count; i++) {
