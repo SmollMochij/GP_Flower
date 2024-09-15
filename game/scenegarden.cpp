@@ -6,6 +6,7 @@
 // Local includes:
 #include "renderer.h"
 #include "sprite.h"
+#include "animatedsprite.h"
 #include "inlinehelper.h"
 #include "snail.h"
 #include "flower.h"
@@ -25,19 +26,30 @@ bool SceneGarden::Initialise(Renderer &renderer)
 {
 	m_pRenderer = &renderer;
 
-	m_pSprites = new Sprite *[10];
+	m_pSprites = new Sprite * [10];
+	m_pAnimatedSprites = new AnimatedSprite *[10];
 	snails = new Snail * [10];
 	flowers = new Flower * [10];
 	snail_count = 0;
 	for (int i = 0; i < 10; i++)
 	{
 		m_pSprites[i] = NULL;
+		m_pAnimatedSprites[i] = NULL;
 		snails[i] = NULL;
 	}
 
 	Sprite* player_sprite = m_pRenderer->CreateSprite("images/ball.png");
 	player = new Player(100, 200);
-	player->SetSprite(player_sprite);
+
+	AnimatedSprite* spriteanimated = m_pRenderer->CreateAnimatedSprite("images/sprite.png");
+	spriteanimated->SetupFrames(32, 32); // 32x32 spritesheet
+	spriteanimated->Animate();
+	spriteanimated->SetLooping(true);
+	spriteanimated->SetFrameDuration(0.2f); // animation interval
+	spriteanimated->SetX(300);
+	spriteanimated->SetY(300);
+	m_pAnimatedSprites[0] = spriteanimated;
+	player->SetAnimatedSprite(spriteanimated);
 
 	int positions[][number_of_flowers] = {
 		{400, 400},
@@ -98,9 +110,12 @@ void SceneGarden::Process(float deltaTime)
 
 	for (int i = 0; i < 10; i++)
 	{
-		if (m_pSprites[i] == NULL)
-			break;
-		m_pSprites[i]->Process(deltaTime);
+		if (m_pSprites[i] != NULL) {
+			m_pSprites[i]->Process(deltaTime);
+		}
+		if (m_pAnimatedSprites[i] != NULL) {
+			m_pAnimatedSprites[i]->Process(deltaTime);
+		}
 	}
 }
 
@@ -114,9 +129,12 @@ void SceneGarden::Draw(Renderer &renderer)
 	}
 
 	for (int i = 0; i < 10; i++){
-		if (m_pSprites[i] == NULL)
-			break;
-		m_pSprites[i]->Draw(renderer);
+		if (m_pSprites[i] != NULL) {
+			m_pSprites[i]->Draw(renderer);
+		}
+		if (m_pAnimatedSprites[i] != NULL) {
+			m_pAnimatedSprites[i]->Draw(renderer);
+		}
 	}
 
 	for (int i = 0; i < number_of_flowers; i++) {

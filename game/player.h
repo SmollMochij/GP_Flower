@@ -1,16 +1,16 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "sprite.h"
+#include "animatedsprite.h"
 
 class Player {
 public:
     int x;
     int y;
-    Sprite* sprite;
+    AnimatedSprite* sprite;
 public:
     Player(int x, int y);
-    void SetSprite(Sprite* sprite);
+    void SetAnimatedSprite(AnimatedSprite* sprite);
     void Update();
 };
 

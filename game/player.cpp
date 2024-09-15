@@ -1,6 +1,7 @@
 #include "player.h"
 #include "inlinehelper.h"
 #include "sprite.h"
+#include "animatedsprite.h"
 
 Player::Player(int _x, int _y){
 	x = _x;
@@ -9,7 +10,7 @@ Player::Player(int _x, int _y){
 	sprite = NULL;
 }
 
-void Player::SetSprite(Sprite* newsprite) {
+void Player::SetAnimatedSprite(AnimatedSprite* newsprite) {
 	sprite = newsprite;
 	sprite->SetX(x);
 	sprite->SetY(y);

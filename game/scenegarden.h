@@ -13,6 +13,7 @@ class Sprite;
 class Snail;
 class Flower;
 class Player;
+class AnimatedSprite;
 // Class declaration:
 class SceneGarden : public Scene
 {
@@ -36,6 +37,7 @@ private:
 protected:
 	Renderer* m_pRenderer;
 	Sprite **m_pSprites;
+	AnimatedSprite** m_pAnimatedSprites;
 	Snail** snails;
 	Flower** flowers;
 	Player* player;
