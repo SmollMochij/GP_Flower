@@ -38,10 +38,12 @@ protected:
 	Renderer* m_pRenderer;
 	Sprite **m_pSprites;
 	AnimatedSprite** m_pAnimatedSprites;
+	Sprite* m_pGameOver;
 	Snail** snails;
 	Flower** flowers;
 	Player* player;
 	int snail_count;
+	int bGameOver;
 };
 
 #endif //   SCENEGARDEN_H

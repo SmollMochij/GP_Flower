@@ -24,6 +24,8 @@ SceneGarden::~SceneGarden()
 }
 bool SceneGarden::Initialise(Renderer &renderer)
 {
+	bGameOver = false;
+
 	m_pRenderer = &renderer;
 
 	m_pSprites = new Sprite * [10];
@@ -51,6 +53,12 @@ bool SceneGarden::Initialise(Renderer &renderer)
 	spriteanimated->SetScale(5);
 	m_pAnimatedSprites[0] = spriteanimated;
 	player->SetAnimatedSprite(spriteanimated);
+
+	Sprite* gameOver = m_pRenderer->CreateSprite("images/gameover.png");
+	gameOver->SetScale(-2);
+	gameOver->SetX(1000);
+	gameOver->SetY(1000);
+	m_pGameOver = gameOver;
 
 	int positions[][number_of_flowers] = {
 		{400, 400},
@@ -83,7 +91,7 @@ void SceneGarden::Process(float deltaTime)
 
 	// randomly spawn new snails
 	if (GetRandomPercentage() < 0.0002f) {
-		if (snail_count < 4) {
+		if (snail_count < 5) {
 			Snail * newsnail = new Snail;
 			Sprite* snail_sprite = m_pRenderer->CreateSprite("images/snail.png");
 			newsnail->SetSprite(snail_sprite);
@@ -109,7 +117,6 @@ void SceneGarden::Process(float deltaTime)
 		}
 	}
 
-
 	for (int i = 0; i < 10; i++)
 	{
 		if (m_pSprites[i] != NULL) {
@@ -118,6 +125,19 @@ void SceneGarden::Process(float deltaTime)
 		if (m_pAnimatedSprites[i] != NULL) {
 			m_pAnimatedSprites[i]->Process(deltaTime);
 		}
+	}
+
+	int deadflowers = 0;
+	for (int i = 0; i < number_of_flowers; i++) {
+		if (flowers[i]->health <= 0) {
+			deadflowers++;
+		}
+	}
+	if (deadflowers == number_of_flowers) {
+		bGameOver = true;
+	}
+	if (bGameOver) {
+		m_pGameOver->Process(deltaTime);
 	}
 }
 
@@ -144,6 +164,10 @@ void SceneGarden::Draw(Renderer &renderer)
 	}
 
 	player->sprite->Draw(renderer);
+
+	if (bGameOver) {
+		m_pGameOver->Draw(renderer);
+	}
 }
 
 void SceneGarden::ProcessInput(const Uint8* state) {
