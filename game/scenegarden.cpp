@@ -29,7 +29,7 @@ bool SceneGarden::Initialise(Renderer &renderer)
 	m_pRenderer = &renderer;
 
 	m_pAnimatedSprites = new AnimatedSprite *[10];
-	snails = new Snail * [10];
+	snails = new Snail * [50];
 	flowers = new Flower * [10];
 	snail_count = 0;
 	for (int i = 0; i < 10; i++)
@@ -109,7 +109,6 @@ void SceneGarden::Process(float deltaTime)
 
 	// randomly spawn new snails
 	if (GetRandomPercentage() < 0.0002f) {
-		if (snail_count < 5) {
 			Snail * newsnail = new Snail;
 			Sprite* snail_sprite = m_pRenderer->CreateSprite("images/snail.png");
 			newsnail->SetSprite(snail_sprite);
@@ -119,7 +118,6 @@ void SceneGarden::Process(float deltaTime)
 #endif
 			snails[snail_count] = newsnail;
 			snail_count++;
-		}
 	}
 
 	// snail eating flowers
