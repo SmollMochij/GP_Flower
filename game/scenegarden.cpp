@@ -48,6 +48,7 @@ bool SceneGarden::Initialise(Renderer &renderer)
 	spriteanimated->SetFrameDuration(0.2f); // animation interval
 	spriteanimated->SetX(300);
 	spriteanimated->SetY(300);
+	spriteanimated->SetScale(5);
 	m_pAnimatedSprites[0] = spriteanimated;
 	player->SetAnimatedSprite(spriteanimated);
 
@@ -62,7 +63,7 @@ bool SceneGarden::Initialise(Renderer &renderer)
 		int x = positions[i][0];
 		int y = positions[i][1];
 		Flower* newflower = new Flower(x, y);
-		Sprite* flower_sprite = m_pRenderer->CreateSprite("images/temp_flower.png");
+		Sprite* flower_sprite = m_pRenderer->CreateSprite("images/rose.png");
 		newflower->SetSprite(flower_sprite);
 		flowers[i] = newflower;
 	}
@@ -86,6 +87,7 @@ void SceneGarden::Process(float deltaTime)
 			Snail * newsnail = new Snail;
 			Sprite* snail_sprite = m_pRenderer->CreateSprite("images/snail.png");
 			newsnail->SetSprite(snail_sprite);
+			newsnail->sprite->SetScale(0.5);
 			snails[snail_count] = newsnail;
 			snail_count++;
 		}
