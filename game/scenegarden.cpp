@@ -28,14 +28,12 @@ bool SceneGarden::Initialise(Renderer &renderer)
 
 	m_pRenderer = &renderer;
 
-	m_pSprites = new Sprite * [10];
 	m_pAnimatedSprites = new AnimatedSprite *[10];
 	snails = new Snail * [10];
 	flowers = new Flower * [10];
 	snail_count = 0;
 	for (int i = 0; i < 10; i++)
 	{
-		m_pSprites[i] = NULL;
 		m_pAnimatedSprites[i] = NULL;
 		snails[i] = NULL;
 	}
@@ -66,6 +64,12 @@ bool SceneGarden::Initialise(Renderer &renderer)
 	gameOver->SetY(1000);
 	m_pGameOver = gameOver;
 
+	Sprite* pressK = m_pRenderer->CreateSprite("images/pressK.png");
+	pressK->SetScale(1);
+	pressK->SetX(1000);
+	pressK->SetY(1200);
+	m_pControls = pressK;
+
 	int positions[][number_of_flowers] = {
 		{400, 400},
 		{800, 400},
@@ -93,6 +97,7 @@ void SceneGarden::Process(float deltaTime)
 #endif
 
 	m_pBG->Process(deltaTime);
+	m_pControls->Process(deltaTime);
 
 	player->sprite->Process(deltaTime);
 	player->Update();
@@ -135,9 +140,6 @@ void SceneGarden::Process(float deltaTime)
 
 	for (int i = 0; i < 10; i++)
 	{
-		if (m_pSprites[i] != NULL) {
-			m_pSprites[i]->Process(deltaTime);
-		}
 		if (m_pAnimatedSprites[i] != NULL) {
 			m_pAnimatedSprites[i]->Process(deltaTime);
 		}
@@ -160,6 +162,7 @@ void SceneGarden::Process(float deltaTime)
 void SceneGarden::Draw(Renderer &renderer)
 {
 	m_pBG->Draw(renderer);
+	m_pControls->Draw(renderer);
 
 	for (int i = 0; i < snail_count; i++) {
 		if (snails[i] == NULL) {
@@ -169,9 +172,6 @@ void SceneGarden::Draw(Renderer &renderer)
 	}
 
 	for (int i = 0; i < 10; i++){
-		if (m_pSprites[i] != NULL) {
-			m_pSprites[i]->Draw(renderer);
-		}
 		if (m_pAnimatedSprites[i] != NULL) {
 			m_pAnimatedSprites[i]->Draw(renderer);
 		}

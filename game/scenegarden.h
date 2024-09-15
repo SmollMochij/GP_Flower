@@ -36,10 +36,10 @@ public:
 private:
 protected:
 	Renderer* m_pRenderer;
-	Sprite **m_pSprites;
 	AnimatedSprite** m_pAnimatedSprites;
 	Sprite* m_pBG;
 	Sprite* m_pGameOver;
+	Sprite* m_pControls;
 	Snail** snails;
 	Flower** flowers;
 	Player* player;
