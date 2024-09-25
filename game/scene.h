@@ -3,6 +3,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 #include <SDL.h>
+#include <fmod.hpp>
 
 // Forward declarations:
 class Renderer;
