@@ -130,7 +130,7 @@ void SceneGarden::Process(float deltaTime)
 			int deltaY = snails[i]->y - flowers[j]->y;
 			int distance = std::sqrt(deltaX * deltaX + deltaY * deltaY);
 
-			if (distance <= 300) {
+			if (distance <= 200) {
 				flowers[j]->health -= SNAILEATING;
 			}
 		}
@@ -205,7 +205,7 @@ void SceneGarden::ProcessInput(const Uint8* state) {
 			int deltaY = snails[i]->y - player->y;
 			int distance = std::sqrt(deltaX * deltaX + deltaY * deltaY);
 
-			if (distance <= 300) {
+			if (distance <= 100) {
 				snails[i] = NULL;
 			}
 		}
