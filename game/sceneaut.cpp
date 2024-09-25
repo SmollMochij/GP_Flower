@@ -48,6 +48,10 @@ void SceneAUT::Draw(Renderer &renderer)
 	m_pSprites[n]->Draw(renderer);
 }
 
+void SceneAUT::Reset(void)
+{
+}
+
 void SceneAUT::ProcessInput(const Uint8* state)
 {
 	

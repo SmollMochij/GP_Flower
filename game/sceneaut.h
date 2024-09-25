@@ -20,6 +20,7 @@ public:
 	virtual void Draw(Renderer& renderer); virtual
 	virtual void ProcessInput(const Uint8* state);
 	virtual void ProcessAudio(FMOD::System* audio);
+	virtual void Reset(void);
 protected:
 private:
 	SceneAUT(const SceneAUT& splashscene);

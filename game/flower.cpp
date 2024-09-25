@@ -10,6 +10,11 @@ Flower::Flower(int _x, int _y){
 	sprite = NULL;
 }
 
+void Flower::Revive()
+{
+	health = 1000;
+}
+
 void Flower::SetSprite(Sprite* newsprite) {
 	sprite = newsprite;
 	sprite->SetX(x);

@@ -21,6 +21,7 @@ public:
 	virtual void Draw(Renderer& renderer) = 0;
 	virtual void ProcessInput(const Uint8* state) = 0;
 	virtual void ProcessAudio(FMOD::System* audio) = 0;
+	virtual void Reset(void) = 0;
 
 protected:
 private:

@@ -11,6 +11,7 @@ public:
     Sprite* sprite;
 public:
     Flower(int x, int y);
+    void Revive();
     void SetSprite(Sprite* sprite);
     void Update();
 };

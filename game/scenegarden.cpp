@@ -89,6 +89,19 @@ bool SceneGarden::Initialise(Renderer &renderer)
 	return true;
 }
 
+void SceneGarden::Reset(void)
+{
+	snail_count = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		snails[i] = NULL;
+	}
+	for (int i = 0; i < number_of_flowers; i++) {
+		flowers[i]->Revive();
+	}
+	player->Reset();
+}
+
 void SceneGarden::Process(float deltaTime)
 {
 #if _DEBUG
@@ -212,6 +225,9 @@ void SceneGarden::ProcessInput(const Uint8* state) {
 		// play sound
 		FMOD::Channel* channel = 0;
 		p_sSystem->playSound(pSound, 0, false, &channel);
+	}
+	if (state[SDL_SCANCODE_SPACE]) {
+		Reset();
 	}
 }
 

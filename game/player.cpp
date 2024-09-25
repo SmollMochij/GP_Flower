@@ -7,7 +7,17 @@ Player::Player(int _x, int _y){
 	x = _x;
 	y = _y;
 
+	spawnX = x;
+	spawnY = y;
+
 	sprite = NULL;
+}
+
+void Player::Reset() {
+	x = spawnX;
+	y = spawnY;
+
+	Update();
 }
 
 void Player::SetAnimatedSprite(AnimatedSprite* newsprite) {
