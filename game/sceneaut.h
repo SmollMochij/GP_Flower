@@ -19,6 +19,7 @@ public:
 	virtual void Process(float deltaTime);
 	virtual void Draw(Renderer& renderer); virtual
 	virtual void ProcessInput(const Uint8* state);
+	virtual void ProcessAudio(FMOD::System* audio);
 protected:
 private:
 	SceneAUT(const SceneAUT& splashscene);

@@ -52,3 +52,8 @@ void SceneAUT::ProcessInput(const Uint8* state)
 {
 	
 }
+
+
+void SceneAUT::ProcessAudio(FMOD::System* audio)
+{
+}

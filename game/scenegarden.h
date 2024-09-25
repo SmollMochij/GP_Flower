@@ -4,6 +4,8 @@
 
 #ifndef SCENEGARDEN_H
 #define SCENEGARDEN_H
+
+#include <fmod.hpp>
 // Local includes:
 #include "scene.h"
 // Forward declarations:
@@ -25,6 +27,7 @@ public:
 	virtual void Process(float deltaTime);
 	virtual void Draw(Renderer &renderer);
 	virtual void ProcessInput(const Uint8* state);
+	virtual void ProcessAudio(FMOD::System* audio);
 
 protected:
 private:
@@ -33,7 +36,6 @@ private:
 
 	// Member data:
 public:
-private:
 protected:
 	Renderer* m_pRenderer;
 	AnimatedSprite** m_pAnimatedSprites;
@@ -45,6 +47,9 @@ protected:
 	Player* player;
 	int snail_count;
 	int bGameOver;
+private:
+	FMOD::System* p_sSystem;
+	FMOD::Sound* pSound;
 };
 
 #endif //   SCENEGARDEN_H

@@ -3,6 +3,8 @@
 #include "game.h"
 
 #include <random>
+#include <fmod.hpp>
+
 // Library includes:
 #include "renderer.h"
 #include "logmanager.h"
@@ -59,6 +61,10 @@ bool Game::Initialise()
 	bbHeight = m_pRenderer->GetHeight();
 	m_iLastTime = SDL_GetPerformanceCounter();
 
+	// sound
+	FMOD::System_Create(&m_soundSystem);
+	m_soundSystem->init(512, FMOD_INIT_NORMAL, 0);
+
 	// scenes
 	m_iCurrentScene = 0;
 	m_pScenes = new Scene *[10];
@@ -69,6 +75,7 @@ bool Game::Initialise()
 
 	pScenes[1] = new SceneGarden();
 	pScenes[1]->Initialise(*m_pRenderer);
+	pScenes[1]->ProcessAudio(m_soundSystem);
 
 	for (int i = 0; i <= 10; i++)
 	{

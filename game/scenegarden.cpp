@@ -208,7 +208,15 @@ void SceneGarden::ProcessInput(const Uint8* state) {
 			if (distance <= 300) {
 				snails[i] = NULL;
 			}
-			
 		}
+		// play sound
+		FMOD::Channel* channel = 0;
+		p_sSystem->playSound(pSound, 0, false, &channel);
 	}
+}
+
+void SceneGarden::ProcessAudio(FMOD::System* audio)
+{
+	p_sSystem = audio;
+	audio->createSound("sfx/shing.wav", FMOD_DEFAULT, 0, &pSound);
 }
