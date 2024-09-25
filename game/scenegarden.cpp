@@ -59,7 +59,6 @@ bool SceneGarden::Initialise(Renderer &renderer)
 	player->SetAnimatedSprite(spriteanimated);
 
 	Sprite* gameOver = m_pRenderer->CreateSprite("images/gameover.png");
-	gameOver->SetScale(-2);
 	gameOver->SetX(1000);
 	gameOver->SetY(1000);
 	m_pGameOver = gameOver;
@@ -91,6 +90,7 @@ bool SceneGarden::Initialise(Renderer &renderer)
 
 void SceneGarden::Reset(void)
 {
+	bGameOver = false;
 	snail_count = 0;
 	for (int i = 0; i < 10; i++)
 	{
@@ -166,7 +166,11 @@ void SceneGarden::Process(float deltaTime)
 		bGameOver = true;
 	}
 	if (bGameOver) {
+		m_pGameOver->SetScale(-2);
 		m_pGameOver->Process(deltaTime);
+	}
+	else {
+		m_pGameOver->SetScale(0);
 	}
 }
 
