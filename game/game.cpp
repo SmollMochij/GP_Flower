@@ -97,6 +97,7 @@ bool Game::DoGameLoop()
 
 	const Uint8* state = SDL_GetKeyboardState(NULL);
 	m_pScenes[m_iCurrentScene]->ProcessInput(state);
+	if (state[SDL_SCANCODE_ESCAPE]) Quit();
 
 	if (m_bLooping)
 	{
